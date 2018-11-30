@@ -37,7 +37,7 @@ class Esaffiliate {
     public function addPartnerSection($user) {
         $this->addPartnerLink($user);
         $this->addRegisteredUsersList($user);
-        $this->addConversionStatistics($user);
+        $this->addTransitionsStatistics($user);
     }
 
     public function addPartnerLink($user ) {
@@ -88,7 +88,7 @@ class Esaffiliate {
         </table>
     <?php }
 
-    public function addConversionStatistics($user) {
+    public function addTransitionsStatistics($user) {
         $rows = $this->dbService->getPartnerStatistics($user->ID);
         ?>
         <h3><?php _e("Статистика переходов по партнёрской ссылке", "blank"); ?></h3>
