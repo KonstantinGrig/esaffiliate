@@ -45,7 +45,6 @@ class DbService implements DbServiceInterface
               created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
               UNIQUE KEY id (id)
             );";
-
             dbDelta($sql);
         }
         if($wpdb->get_var("SHOW TABLES LIKE '$this->tableUsersPartnerRegistration'") != $this->tableUsersPartnerRegistration) {
