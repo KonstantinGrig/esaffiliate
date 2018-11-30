@@ -89,7 +89,7 @@ class Esaffiliate {
     <?php }
 
     public function addConversionStatistics($user) {
-        $rows = $this->dbService->getConversionStatistics($user->ID);
+        $rows = $this->dbService->getPartnerStatistics($user->ID);
         ?>
         <h3><?php _e("Статистика переходов по партнёрской ссылке", "blank"); ?></h3>
         <table class="form-table">
@@ -163,7 +163,7 @@ class Esaffiliate {
     }
 
     public function addAffiliateAdminPage() {
-        $rows = $this->dbService->getAllUsersStatistics();
+        $rows = $this->dbService->getAllPartnersStatistics();
         ?>
         <h2><?php _e("Статистика переходов по партнёрским ссылкам", "blank"); ?></h2>
         <table class="form-table">

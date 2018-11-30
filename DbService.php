@@ -5,8 +5,8 @@ interface DbServiceInterface
     public function createTables();
     public function insert($table, $data, $format = null);
     public function getRegisteredUsers($userIdPartner);
-    public function getConversionStatistics($userIdPartner);
-    public function getAllUsersStatistics();
+    public function getPartnerStatistics($userIdPartner);
+    public function getAllPartnersStatistics();
     public function getTableUsersPartnerLinksStats();
     public function getTableUsersPartnerRegistration();
 }
@@ -75,7 +75,7 @@ class DbService implements DbServiceInterface
         return $rows;
     }
 
-    public function getConversionStatistics($userIdPartner) {
+    public function getPartnerStatistics($userIdPartner) {
         global $wpdb;
 
         $rows = $wpdb->get_results( "SELECT * FROM $this->tableUsersPartnerLinksStats WHERE user_id_partner = $userIdPartner" );
@@ -83,7 +83,7 @@ class DbService implements DbServiceInterface
         return $rows;
     }
 
-    public function getAllUsersStatistics() {
+    public function getAllPartnersStatistics() {
         global $wpdb;
         $rows = $wpdb->get_results( "SELECT  $this->tableUsersPartnerLinksStats.user_id_partner, $this->tableUsersPartnerLinksStats.ip, $this->tableUsersPartnerLinksStats.url_from, $this->tableUsersPartnerLinksStats.url_to, $this->tableUsersPartnerLinksStats.created_at, $this->tableUsers.user_login, $this->tableUsers.user_email, $this->tableUsers.user_nicename 
                 FROM $this->tableUsersPartnerLinksStats
