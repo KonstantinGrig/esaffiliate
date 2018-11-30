@@ -51,7 +51,7 @@ class Esaffiliate {
     <?php }
 
     public function addRegisteredUsersList($user) {
-        $rows = $this->dbService->getRegisteredUsers($user->ID);
+        $rows = $this->dbService->getPartnerRegisteredUsers($user->ID);
         ?>
         <h3><?php _e("Пользователи зарегистрированные по партнёрской ссылке", "blank"); ?></h3>
         <table class="form-table">

@@ -4,7 +4,7 @@ interface DbServiceInterface
 {
     public function createTables();
     public function insert($table, $data, $format = null);
-    public function getRegisteredUsers($userIdPartner);
+    public function getPartnerRegisteredUsers($userIdPartner);
     public function getPartnerStatistics($userIdPartner);
     public function getAllPartnersStatistics();
     public function getTableUsersPartnerLinksStats();
@@ -64,7 +64,7 @@ class DbService implements DbServiceInterface
         $wpdb->insert($table, $data, $format);
     }
 
-    public function getRegisteredUsers($userIdPartner) {
+    public function getPartnerRegisteredUsers($userIdPartner) {
         global $wpdb;
 
         $rows = $wpdb->get_results( "SELECT  $this->tableUsersPartnerRegistration.user_id_partner, $this->tableUsersPartnerRegistration.created_at, $this->tableUsers.user_login, $this->tableUsers.user_email, $this->tableUsers.user_nicename FROM $this->tableUsersPartnerRegistration
